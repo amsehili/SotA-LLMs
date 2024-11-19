@@ -9,7 +9,7 @@ class AttentionHead(nn.Module):
         self,
         n_inputs: int,
         head_size: int,
-        dropout: float = 0.5,
+        dropout: float = 0.1,
         causal: bool = False,
         max_context: int = 256,
     ) -> None:
@@ -46,7 +46,7 @@ class AttentionHead(nn.Module):
 class MultiHeadAttention(nn.Module):
 
     def __init__(
-        self, n_inputs, n_heads, dropout=0.2, causal=False, max_context=256
+        self, n_inputs, n_heads, dropout=0.1, causal=False, max_context=256
     ) -> None:
         super().__init__()
         head_size = n_inputs // n_heads
@@ -78,7 +78,7 @@ class MultiHeadAttention(nn.Module):
 class TransformerBlock(nn.Module):
 
     def __init__(
-        self, n_inputs, n_heads, dropout=0.2, causal=False, max_context=256
+        self, n_inputs, n_heads, dropout=0.1, causal=False, max_context=256
     ) -> None:
         super().__init__()
 
@@ -109,7 +109,7 @@ class GPT(nn.Module):
         n_heads,
         n_tokens,
         n_embed,
-        dropout=0.2,
+        dropout=0.1,
         causal=False,
         max_context=256,
     ) -> None:
